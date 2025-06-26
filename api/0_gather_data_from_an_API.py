@@ -6,8 +6,8 @@ import sys
 
 
 if _name_ == "_main_":
-    if len(sys.argv) < 2:
-        print("Usage: ./0-gather_data_from_API <employee_id>")
+    if len(sys.argv) != 2:
+        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
         sys.exit(1)
 
     try:
@@ -17,8 +17,9 @@ if _name_ == "_main_":
         sys.exit(1)
 
 
-    user_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    todos_url = f"https://jsonplaceholder.typicode.com?todos?userId={employee_id}"
+    base_url = "https://jsonplaceholder.typicode.com"
+    user_url = f"{base_url}/users/{employee_id}"
+    todos_url = f"{base_url}/todos?userId={employee_id}"
 
 
     user_response = requests.get(user_url)
@@ -28,6 +29,9 @@ if _name_ == "_main_":
         print("Error:Failed to retrieve data from API")
         sys.exit(1)
 
+    user_data = user_response.json()
+    todos = todos_response.json()
+	
     employee_name = user_response.json().get('name')
     todos = todos_response.json()
 
