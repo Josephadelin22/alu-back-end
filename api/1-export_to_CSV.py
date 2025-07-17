@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Exports all tasks for a given employee to a CSV file.
-Usage: python3 1-export_to_CSV.py <employee_id>
+Exports all tasks for a given employee a to a CSV file.
+Usage: python# 1-export_to_CSV.py <employee_id>
 """
 
 
