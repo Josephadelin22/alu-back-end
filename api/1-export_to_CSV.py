@@ -4,7 +4,8 @@ Exports all tasks for a given employee to a CSV file.
 Usage: python3 1-export_to_CSV.py <employee_id>
 """
 
-import CSV
+
+import csv
 import requests 
 import sys 
 
@@ -16,7 +17,7 @@ if __name__ == "__main__":
     
     try:
        
-       employee_id = int()sys.argv[1])
+       employee_id = int(sys.argv[1])
 
 
     except ValueError:
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     filename = "{}.csv".format(employee_id)
     
     with open(filename, mode='w', newline ='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csv, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         
         for task in todos:
 	    writer.writerow([
