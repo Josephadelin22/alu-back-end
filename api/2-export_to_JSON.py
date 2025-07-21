@@ -26,21 +26,20 @@ if __name__ == "__main__":
     if user_response.status_code != 200:
         print("User not found")
         sys.exit(1)
-
     user = user_response.json()
     employee_username = user.get("username")
 
     todos_response = requests.get(todos_url)
     todos = todos_response.json()
 
-    # Build the list of task dicts as required
     task_list = []
     for task in todos:
-        task_list.append({
+        task_dict = {
             "task": task.get("title"),
             "completed": task.get("completed"),
             "username": employee_username
-        })
+        }
+        task_list.append(task_dict)
 
     json_data = {str(employee_id): task_list}
     filename = "{}.json".format(employee_id)
