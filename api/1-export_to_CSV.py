@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Exports all tasks for a given employee a to a CSV file.
-Usage: python# 1-export_to_CSV.py <employee_id>
+Usage: python3 1-export_to_CSV.py <employee_id>
 """
 
 
@@ -47,8 +47,8 @@ if __name__ == "__main__":
         
         for task in todos:
 	    writer.writerow([
-employee_id,
-employee_username,
-task.get("completed"),
-task.get("title")
-])        
+	employee_id,
+	employee_username,
+	task.get("completed"),
+	task.get("title")
+	])        
